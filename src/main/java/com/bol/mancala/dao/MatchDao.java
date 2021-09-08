@@ -17,11 +17,15 @@ public class MatchDao {
         return Optional.ofNullable(gameTable.get(id));
     }
 
-    public Match saveOrUpdate(Match match) {
-        return gameTable.saveOrUpdate(match.hashCode(), match);
+    public Match save(Match match) {
+        return gameTable.save(match);
     }
 
-    public void delete(Match match) {
-        gameTable.delete(match);
+    public Match update(Match match) {
+        return gameTable.update(match);
+    }
+
+    public Match delete(Match match) {
+        return gameTable.delete(match);
     }
 }

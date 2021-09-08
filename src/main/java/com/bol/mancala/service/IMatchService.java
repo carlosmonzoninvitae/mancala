@@ -1,5 +1,6 @@
 package com.bol.mancala.service;
 
+import com.bol.mancala.dto.DeleteDTO;
 import com.bol.mancala.dto.MatchDTO;
 import com.bol.mancala.dto.StartMatchDTO;
 import com.bol.mancala.model.Match;
@@ -16,7 +17,7 @@ public interface IMatchService{
 
     public MatchDTO startMatch(StartMatchDTO start);
 
-    public Boolean stopMatch();
+    public void deleteMatch(DeleteDTO deleteDTO);
 
-    public Match getMatchStatus();
+    public MatchDTO getMatch(Integer matchId);
 }

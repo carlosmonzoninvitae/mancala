@@ -1,5 +1,7 @@
 package com.bol.mancala.persistence;
 
+import com.bol.mancala.exception.MyResourceAlreadyExistsException;
+import com.bol.mancala.exception.MyResourceNotFoundException;
 import com.bol.mancala.model.Match;
 import org.springframework.stereotype.Component;
 
@@ -31,15 +33,33 @@ public class GameTable {
         return single_instance;
     }
 
-    public Match saveOrUpdate(Integer id, Match match) {
-        return table.put(id, match);
+    public Match save(Match match) {
+        int matchSessionCode = match.hashCode();
+        //Hash table's save returns old value or null if there wasn't a previous one.
+        if (table.put(matchSessionCode, match) != null)
+            throw new MyResourceAlreadyExistsException("Match already exists");
+
+        match.setId(matchSessionCode);
+        return match;
+    }
+
+    public Match update(Match match) {
+        //Hash table's put returns old value or null if there wasn't a previous one.
+        if (table.put(match.hashCode(), match) == null)
+            throw new MyResourceNotFoundException("Match not found");
+
+        return match;
     }
 
     public Match get(Integer id) {
-        return table.get(id);
+        Match match = table.get(id);
+        if (match==null)
+            return null;
+
+        return new Match(match);
     }
 
     public Match delete(Match match) {
-        return table.remove(match);
+        return table.remove(match.hashCode());
     }
 }

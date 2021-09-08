@@ -1,21 +1,27 @@
 package com.bol.mancala.dto;
 
 public class StartMatchDTO {
-    private Long matchId;
+    private String session;
+    private Integer matchId;
     private String player1;
     private String player2;
 
-    public StartMatchDTO(Long matchId, String player1, String player2) {
-        this.matchId = matchId;
-        this.player1 = player1;
-        this.player2 = player2;
+    public StartMatchDTO() {
     }
 
-    public Long getMatchId() {
+    public String getSession() {
+        return session;
+    }
+
+    public void setSession(String session) {
+        this.session = session;
+    }
+
+    public Integer getMatchId() {
         return matchId;
     }
 
-    public void setMatchId(Long matchId) {
+    public void setMatchId(Integer matchId) {
         this.matchId = matchId;
     }
 

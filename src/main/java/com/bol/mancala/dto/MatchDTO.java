@@ -1,18 +1,18 @@
 package com.bol.mancala.dto;
 
+import com.bol.mancala.dto.PlayerDTO;
+
+import java.util.Objects;
+
 public class MatchDTO {
 
     private String session;
-    private Long id;
+    private Integer id;
     private BoardDTO boardDTO;
     private PlayerDTO player1;
     private PlayerDTO player2;
 
     public MatchDTO() {}
-
-    public Long getId() { return id; }
-
-    public void setId(Long id) { this.id = id; }
 
     public String getSession() {
         return session;
@@ -20,6 +20,14 @@ public class MatchDTO {
 
     public void setSession(String session) {
         this.session = session;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public BoardDTO getBoardDTO() {
@@ -44,5 +52,18 @@ public class MatchDTO {
 
     public void setPlayer2(PlayerDTO player2) {
         this.player2 = player2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MatchDTO matchDTO = (MatchDTO) o;
+        return Objects.equals(id, matchDTO.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
