@@ -1,23 +1,19 @@
 package com.bol.mancala.service;
 
-import com.bol.mancala.dto.DeleteDTO;
+import com.bol.mancala.dto.FindMatchDTO;
 import com.bol.mancala.dto.MatchDTO;
+import com.bol.mancala.dto.MovementDTO;
 import com.bol.mancala.dto.StartMatchDTO;
-import com.bol.mancala.model.Match;
 
-public interface IMatchService{
+public interface IMatchService {
 
-//    ModelMapper modelMapper = new ModelMapper();
-//    // user here is a prepopulated User instance
-//    UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+  MatchDTO startMatch(StartMatchDTO start);
 
-//    public Match makeAMove(MovementDTO movementDTO) {
-//        return null;
-//    }
+  void deleteMatch(FindMatchDTO findMatchDTO);
 
-    public MatchDTO startMatch(StartMatchDTO start);
+  MatchDTO getMatch(FindMatchDTO findMatchDTO);
 
-    public void deleteMatch(DeleteDTO deleteDTO);
+  Boolean matchExists(Integer matchId);
 
-    public MatchDTO getMatch(Integer matchId);
+  MatchDTO makeAMove(MovementDTO movementDTO);
 }

@@ -1,69 +1,76 @@
 package com.bol.mancala.dto;
 
-import com.bol.mancala.dto.PlayerDTO;
-
 import java.util.Objects;
 
 public class MatchDTO {
 
-    private String session;
-    private Integer id;
-    private BoardDTO boardDTO;
-    private PlayerDTO player1;
-    private PlayerDTO player2;
+  private String session;
+  private Integer id;
+  private BoardDTO boardDTO;
+  private PlayerDTO player1;
+  private PlayerDTO player2;
+  private Integer whoWon;
 
-    public MatchDTO() {}
+  public MatchDTO() {}
 
-    public String getSession() {
-        return session;
-    }
+  public String getSession() {
+    return session;
+  }
 
-    public void setSession(String session) {
-        this.session = session;
-    }
+  public void setSession(String session) {
+    this.session = session;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public BoardDTO getBoardDTO() {
-        return boardDTO;
-    }
+  public BoardDTO getBoardDTO() {
+    return boardDTO;
+  }
 
-    public void setBoardDTO(BoardDTO boardDTO) {
-        this.boardDTO = boardDTO;
-    }
+  public void setBoardDTO(BoardDTO boardDTO) {
+    this.boardDTO = boardDTO;
+  }
 
-    public PlayerDTO getPlayer1() {
-        return player1;
-    }
+  public PlayerDTO getPlayer1() {
+    return player1;
+  }
 
-    public void setPlayer1(PlayerDTO player1) {
-        this.player1 = player1;
-    }
+  public void setPlayer1(PlayerDTO player1) {
+    this.player1 = player1;
+  }
 
-    public PlayerDTO getPlayer2() {
-        return player2;
-    }
+  public PlayerDTO getPlayer2() {
+    return player2;
+  }
 
-    public void setPlayer2(PlayerDTO player2) {
-        this.player2 = player2;
-    }
+  public void setPlayer2(PlayerDTO player2) {
+    this.player2 = player2;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MatchDTO matchDTO = (MatchDTO) o;
-        return Objects.equals(id, matchDTO.id);
-    }
+  public Integer getWhoWon() {
+    return whoWon;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+  public void setWhoWon(Integer whoWon) {
+    this.whoWon = whoWon;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    MatchDTO matchDTO = (MatchDTO) o;
+    return Objects.equals(id, matchDTO.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 }
